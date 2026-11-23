@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import http.server
 import json
+import os
 import shutil
 import threading
 import time
@@ -160,7 +161,13 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
     def _host_ok(self) -> bool:
         host = (self.headers.get("Host") or "").lower()
-        return host in {f"127.0.0.1:{self.port}", f"localhost:{self.port}"}
+        hostname = host.split(":", 1)[0]
+        allowed = {"127.0.0.1", "localhost"}
+        for name in ("RENDER_EXTERNAL_HOSTNAME", "PUBLIC_HOSTNAME"):
+            value = os.environ.get(name, "").strip().lower()
+            if value:
+                allowed.add(value.split(":", 1)[0])
+        return hostname in allowed
 
     def _json(self, code: int, obj: dict) -> None:
         body = json.dumps(obj, ensure_ascii=False).encode("utf-8")

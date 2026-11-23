@@ -5,6 +5,7 @@ import argparse
 import functools
 import http.server
 import json
+import os
 import sys
 import webbrowser
 from pathlib import Path
@@ -129,12 +130,13 @@ def cmd_serve(a) -> int:
     Handler.port = a.port
     handler = functools.partial(Handler, directory=str(dist))
     try:
-        httpd = _ExclusiveServer(("127.0.0.1", a.port), handler)
+        httpd = _ExclusiveServer(("0.0.0.0", a.port), handler)
     except OSError:
         print(f"[ข้อผิดพลาด] พอร์ต {a.port} มีโปรแกรมอื่นใช้อยู่ — ลองใหม่ด้วย --port 8010 (หรือพอร์ตอื่นที่ว่าง)",
               file=sys.stderr)
         return 2
-    url = f"http://127.0.0.1:{a.port}/"
+    public_host = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
+    url = f"https://{public_host}/" if public_host else f"http://127.0.0.1:{a.port}/"
     print(f"เปิดหน้าเว็บที่ {url} (ข้อมูล: {', '.join(found)}) — กด Ctrl+C เพื่อหยุด", flush=True)
     if not a.no_browser:
         webbrowser.open(url)
@@ -185,7 +187,7 @@ def build_parser() -> argparse.ArgumentParser:
     s.set_defaults(func=cmd_search)
 
     v = sub.add_parser("serve", help="เปิดหน้าเว็บ React")
-    v.add_argument("--port", type=int, default=8000)
+    v.add_argument("--port", type=int, default=int(os.environ.get("PORT", "8000")))
     v.add_argument("--no-browser", action="store_true")
     v.set_defaults(func=cmd_serve)
     return p

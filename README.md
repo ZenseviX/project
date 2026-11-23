@@ -32,3 +32,8 @@ npm run build
 ```
 
 ไฟล์ผลลัพธ์สำหรับหน้าเว็บอยู่ที่ `frontend/dist/data/synthetic.json`
+
+## Deploy บน Render
+
+โปรเจกต์มี `render.yaml` สำหรับสร้าง Web Service แล้วใช้ `python -m thai_chart_ml serve --no-browser`
+เป็น start command โปรแกรมจะอ่านพอร์ตจากตัวแปร `PORT` และ bind ที่ `0.0.0.0` โดยอัตโนมัติ

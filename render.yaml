@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: thailand-spotify-chart
+    runtime: python
+    buildCommand: pip install -r requirements.txt && npm ci --prefix frontend && npm run build --prefix frontend
+    startCommand: python -m thai_chart_ml serve --no-browser
