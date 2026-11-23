@@ -1,0 +1,4 @@
+﻿model,name,best_k,silhouette,davies_bouldin,calinski_harabasz
+kmeans,K-Means,6,0.4148,0.8486,212.54
+agglomerative,Hierarchical (Ward),6,0.4044,0.8382,195.79
+gmm,Gaussian Mixture,5,0.3292,1.0104,152.47

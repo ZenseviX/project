@@ -1,0 +1,70 @@
+{
+ "data_source": "synthetic",
+ "warning": "ผลลัพธ์นี้มาจากข้อมูลจำลอง (synthetic) เพื่อทดสอบโค้ดเท่านั้น ไม่ใช่ผลของชาร์ต Spotify ประเทศไทย",
+ "notices": [
+  "ไม่พบไฟล์ charts.csv: C:\\Users\\Administrator\\Desktop\\thailand-spotify-chart-ml\\data\\raw\\charts.csv\n  -> ดาวน์โหลดจาก https://www.kaggle.com/datasets/dhruvildave/spotify-charts\n  -> แล้ววางไฟล์ไว้ที่ C:\\Users\\Administrator\\Desktop\\thailand-spotify-chart-ml\\data\\raw\\charts.csv"
+ ],
+ "generated_at": "2026-11-23T19:29:31",
+ "charts_file": "C:\\Users\\Administrator\\Desktop\\thailand-spotify-chart-ml\\data\\synthetic\\charts_synthetic.csv",
+ "songs_file": "C:\\Users\\Administrator\\Desktop\\thailand-spotify-chart-ml\\data\\synthetic\\spotify_songs_synthetic.csv",
+ "region": "Thailand",
+ "chart": "top200",
+ "date_window": {
+  "data_available_from": "2020-10-01",
+  "data_available_to": "2021-11-24",
+  "requested_start": "2020-11-25",
+  "requested_end": "2021-11-24",
+  "default_12_month_window": true,
+  "actual_first_date": "2020-11-25",
+  "actual_last_date": "2021-11-24",
+  "calendar_days_in_window": 365,
+  "days_with_data": 364,
+  "missing_days_count": 1,
+  "rows_with_unparseable_date": 0
+ },
+ "n_songs": 320,
+ "audio_matched": 147,
+ "audio_matched_pct": 45.94,
+ "best_k": 6,
+ "best_silhouette": 0.4148,
+ "pca_explained_variance": [
+  0.4575,
+  0.2473
+ ],
+ "evaluation": {
+  "type": "exploratory (ยังไม่มีคะแนนจากผู้ประเมิน)",
+  "n_seeds": 10,
+  "seed_selection": "numpy default_rng(42) เลือกจาก track_id ที่เรียงแล้ว",
+  "metric": "trajectory_mad: ผลต่างอันดับรายวันเฉลี่ย 90 วันแรกหลังพบครั้งแรก (หลุดชาร์ต=201)",
+  "random_baseline": "สุ่ม 5 เพลง x 100 ครั้งต่อเพลงตั้งต้น",
+  "mean_rec_trajectory_mad": 8.8,
+  "mean_random_trajectory_mad": 43.0,
+  "seeds_rec_better_than_random": 10,
+  "audio_pairs_available": 16,
+  "note": "ตัวชี้วัดมาจากข้อมูลชาร์ตชุดเดียวกับคุณลักษณะที่ใช้แนะนำ จึงเป็นการตรวจความสอดคล้องเชิงสำรวจ ไม่ใช่การพิสูจน์ความแม่นยำ ควรให้ผู้ประเมินดูกราฟประวัติอันดับเพิ่มเติม"
+ },
+ "models": [
+  {
+   "model": "kmeans",
+   "best_k": 6,
+   "silhouette": 0.4148,
+   "davies_bouldin": 0.8486,
+   "calinski_harabasz": 212.54
+  },
+  {
+   "model": "agglomerative",
+   "best_k": 6,
+   "silhouette": 0.4044,
+   "davies_bouldin": 0.8382,
+   "calinski_harabasz": 195.79
+  },
+  {
+   "model": "gmm",
+   "best_k": 5,
+   "silhouette": 0.3292,
+   "davies_bouldin": 1.0104,
+   "calinski_harabasz": 152.47
+  }
+ ],
+ "output_dir": "C:\\Users\\Administrator\\Desktop\\thailand-spotify-chart-ml\\outputs\\synthetic"
+}

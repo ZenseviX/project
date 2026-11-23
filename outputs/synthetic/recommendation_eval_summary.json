@@ -1,0 +1,12 @@
+{
+ "type": "exploratory (ยังไม่มีคะแนนจากผู้ประเมิน)",
+ "n_seeds": 10,
+ "seed_selection": "numpy default_rng(42) เลือกจาก track_id ที่เรียงแล้ว",
+ "metric": "trajectory_mad: ผลต่างอันดับรายวันเฉลี่ย 90 วันแรกหลังพบครั้งแรก (หลุดชาร์ต=201)",
+ "random_baseline": "สุ่ม 5 เพลง x 100 ครั้งต่อเพลงตั้งต้น",
+ "mean_rec_trajectory_mad": 8.8,
+ "mean_random_trajectory_mad": 43.0,
+ "seeds_rec_better_than_random": 10,
+ "audio_pairs_available": 16,
+ "note": "ตัวชี้วัดมาจากข้อมูลชาร์ตชุดเดียวกับคุณลักษณะที่ใช้แนะนำ จึงเป็นการตรวจความสอดคล้องเชิงสำรวจ ไม่ใช่การพิสูจน์ความแม่นยำ ควรให้ผู้ประเมินดูกราฟประวัติอันดับเพิ่มเติม"
+}

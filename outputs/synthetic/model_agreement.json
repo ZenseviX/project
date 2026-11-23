@@ -1,0 +1,17 @@
+[
+ {
+  "a": "kmeans",
+  "b": "agglomerative",
+  "ari": 0.8193
+ },
+ {
+  "a": "kmeans",
+  "b": "gmm",
+  "ari": 0.5012
+ },
+ {
+  "a": "agglomerative",
+  "b": "gmm",
+  "ari": 0.5561
+ }
+]

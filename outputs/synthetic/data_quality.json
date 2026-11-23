@@ -1,0 +1,30 @@
+{
+ "date_window": {
+  "data_available_from": "2020-10-01",
+  "data_available_to": "2021-11-24",
+  "requested_start": "2020-11-25",
+  "requested_end": "2021-11-24",
+  "default_12_month_window": true,
+  "actual_first_date": "2020-11-25",
+  "actual_last_date": "2021-11-24",
+  "calendar_days_in_window": 365,
+  "days_with_data": 364,
+  "missing_days_count": 1,
+  "missing_days": [
+   "2021-04-19"
+  ],
+  "rows_with_unparseable_date": 0
+ },
+ "cleaning": {
+  "rows_in_window": 60212,
+  "dropped_no_track_id": 0,
+  "dropped_invalid_rank": 0,
+  "dropped_exact_duplicates": 0,
+  "rank_conflict_groups": 0,
+  "rank_conflict_examples": [],
+  "dropped_conflicting_rank_rows": 0,
+  "rows_sharing_date_and_rank": 0,
+  "rows_after_cleaning": 60212,
+  "total_rows_removed": 0
+ }
+}
